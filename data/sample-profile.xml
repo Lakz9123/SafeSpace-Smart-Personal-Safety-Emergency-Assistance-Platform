@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SafetyProfile>
+    <User>
+        <Name>John Doe</Name>
+        <BloodType>O+</BloodType>
+        <MedicalConditions>
+            <Condition>Asthma</Condition>
+        </MedicalConditions>
+    </User>
+    <EmergencyContacts>
+        <Contact>
+            <Name>Jane Doe</Name>
+            <Relation>Spouse</Relation>
+            <Phone>+1234567890</Phone>
+        </Contact>
+    </EmergencyContacts>
+</SafetyProfile>

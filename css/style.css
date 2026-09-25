@@ -1,0 +1,19 @@
+/* Base Styles & Typography */
+:root {
+    --primary-color: #0d6efd;
+    --bg-dark: #121212;
+    --text-main: #f8f9fa;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
