@@ -1,35 +1,54 @@
+/* css/alerts.css */
 /* Alert States and SOS Animations */
 
-.sos-button {
-    width: 150px;
-    height: 150px;
-    font-size: 2rem;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.sos-btn {
+    overflow: hidden; /* For progress fill */
 }
 
-.sos-button:hover {
-    transform: scale(1.05);
+.sos-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    transition: height 0.1s linear;
 }
 
-.pulse-animation {
-    animation: pulse 2s infinite;
+#sos-text {
+    position: relative;
+    z-index: 2;
 }
 
-@keyframes pulse {
+/* When counting down, make button look pressed/active */
+.sos-btn.counting {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.alert-active {
+    background-color: #2c0b0e !important; /* Dark red background during alert */
+    transition: background-color 0.5s ease;
+}
+
+.alert-active .sos-ripple {
+    animation: pulse-danger 1s infinite;
+    background: rgba(220, 53, 69, 0.6);
+}
+
+.alert-active .sos-btn {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    box-shadow: 0 0 40px rgba(220, 53, 69, 0.8);
+}
+
+@keyframes pulse-danger {
     0% {
-        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 30px rgba(220, 53, 69, 0);
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
     }
-}
-
-.alert-active body {
-    background-color: #3a0000; /* Dark red background during alert */
 }

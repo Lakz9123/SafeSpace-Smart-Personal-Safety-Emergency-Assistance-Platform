@@ -1,19 +1,277 @@
+/* css/style.css */
 /* Base Styles & Typography */
-:root {
-    --primary-color: #0d6efd;
-    --bg-dark: #121212;
+[data-bs-theme="dark"] {
+    --primary: #ff416c;
+    --secondary: #ff4b2b;
+    --bg-main: #0f111a;
+    --card-bg: rgba(25, 28, 41, 0.4);
     --text-main: #f8f9fa;
+    --text-muted: #a0a5b1;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --border-hover: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(15, 17, 26, 0.6);
+    --nav-border: rgba(255, 255, 255, 0.05);
+    --gradient-bg: radial-gradient(circle at 15% 50%, rgba(255, 65, 108, 0.08), transparent 25%),
+                   radial-gradient(circle at 85% 30%, rgba(13, 110, 253, 0.08), transparent 25%);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme="light"] {
+    --primary: #ff416c;
+    --secondary: #ff4b2b;
+    --bg-main: #f1f5f9;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --border-hover: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.7);
+    --nav-border: rgba(0, 0, 0, 0.05);
+    --gradient-bg: radial-gradient(circle at 15% 50%, rgba(255, 65, 108, 0.05), transparent 25%),
+                   radial-gradient(circle at 85% 30%, rgba(13, 110, 253, 0.05), transparent 25%);
+    --card-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.2);
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s ease;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background-image: var(--gradient-bg);
+    background-attachment: fixed;
+    background-size: cover;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .text-gradient {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.tracking-wide {
+    letter-spacing: 0.1em;
+}
+
+.fs-sm {
+    font-size: 0.875rem;
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--border-color) !important;
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--nav-border);
+    padding: 12px 0;
+    transition: background-color 0.3s ease;
+}
+
+.glass-nav .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+.glass-nav .navbar-nav .nav-link {
+    color: var(--text-main) !important;
+}
+
+.dashboard-container {
+    padding-top: 100px;
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+.theme-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+    border-color: var(--border-hover);
+}
+
+/* Premium SOS Button */
+.sos-wrapper {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.sos-btn {
+    position: relative;
+    z-index: 2;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 800;
+    border: none;
+    box-shadow: 0 10px 30px rgba(255, 65, 108, 0.5),
+                inset 0 4px 15px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: 2px;
+}
+
+.sos-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 45px rgba(255, 65, 108, 0.7),
+                inset 0 4px 15px rgba(255, 255, 255, 0.4);
+}
+
+.sos-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.sos-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 65, 108, 0.4);
+    z-index: 1;
+    animation: ripple 2.5s infinite cubic-bezier(0.65, 0, 0.34, 1);
+}
+
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.2);
+        opacity: 0;
+    }
+}
+
+/* Lists Styling */
+.contact-item, .place-item, .history-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item:last-of-type, .place-item:last-of-type {
+    border-bottom: none;
+}
+
+.contact-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 14px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.gradient-1 { background: linear-gradient(135deg, #4776E6, #8E54E9); }
+.gradient-2 { background: linear-gradient(135deg, #00b09b, #96c93d); }
+
+.place-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.hospital-icon { 
+    background: rgba(32, 201, 151, 0.15); 
+    border: 1px solid rgba(32, 201, 151, 0.3);
+    color: #20c997;
+}
+.police-icon { 
+    background: rgba(13, 110, 253, 0.15); 
+    border: 1px solid rgba(13, 110, 253, 0.3);
+    color: #0d6efd;
+}
+
+.add-contact-btn {
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+    color: var(--text-muted);
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.add-contact-btn:hover {
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Utilities for text */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Responsiveness adjustments */
+@media (min-width: 768px) {
+    .sos-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+    .sos-btn {
+        width: 170px;
+        height: 170px;
+        font-size: 2.75rem;
+    }
+    .sos-ripple {
+        width: 170px;
+        height: 170px;
+    }
+    .contact-avatar, .place-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        margin-right: 16px;
+    }
 }

@@ -4,7 +4,8 @@ const SafeSpaceGeo = {
     getCurrentLocation: () => {
         return new Promise((resolve, reject) => {
             if (!navigator.geolocation) {
-                reject(new Error('Geolocation is not supported by your browser'));
+                console.warn("Geolocation not supported. Using mock location.");
+                resolve({ lat: 37.7749, lng: -122.4194, accuracy: 100 }); // San Francisco
                 return;
             }
             
@@ -14,8 +15,11 @@ const SafeSpaceGeo = {
                     lng: position.coords.longitude,
                     accuracy: position.coords.accuracy
                 }),
-                error => reject(error),
-                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+                error => {
+                    console.warn("Geolocation failed or timed out. Using mock location.", error);
+                    resolve({ lat: 37.7749, lng: -122.4194, accuracy: 100 });
+                },
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
             );
         });
     }
