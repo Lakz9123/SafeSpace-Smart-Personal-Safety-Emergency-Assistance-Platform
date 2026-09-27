@@ -73,5 +73,43 @@ const SafeSpaceStorage = {
 
     saveMedicalInfo: (info) => {
         return SafeSpaceStorage.saveData('medical', info);
+    },
+
+    // Fake Call helpers
+    getFakeCallInfo: () => {
+        return SafeSpaceStorage.getData('fakeCall') || { callerName: 'Mom', delay: 3 };
+    },
+
+    saveFakeCallInfo: (info) => {
+        return SafeSpaceStorage.saveData('fakeCall', info);
+    },
+
+    // Voice Settings
+    getVoiceSettings: () => {
+        return SafeSpaceStorage.getData('voiceSettings') || { enabled: false, phrase: 'help me now' };
+    },
+
+    saveVoiceSettings: (settings) => {
+        return SafeSpaceStorage.saveData('voiceSettings', settings);
+    },
+
+    // Follow Me Settings
+    getFollowMeSessions: () => {
+        return SafeSpaceStorage.getData('followMeSessions') || [];
+    },
+
+    addFollowMeSession: (session) => {
+        const sessions = SafeSpaceStorage.getFollowMeSessions();
+        sessions.unshift(session);
+        return SafeSpaceStorage.saveData('followMeSessions', sessions);
+    },
+
+    // Shake Settings
+    getShakeSettings: () => {
+        return SafeSpaceStorage.getData('shakeSettings') || { enabled: false };
+    },
+
+    saveShakeSettings: (settings) => {
+        return SafeSpaceStorage.saveData('shakeSettings', settings);
     }
 };

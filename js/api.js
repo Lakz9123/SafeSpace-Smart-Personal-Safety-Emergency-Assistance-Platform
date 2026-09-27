@@ -39,6 +39,10 @@ const SafeSpaceAPI = {
             }
             const data = await response.json();
             
+            if (!data.elements || data.elements.length === 0) {
+                throw new Error("API returned no results, falling back to mock data.");
+            }
+            
             return data.elements.map(el => {
                 const elLat = el.lat || (el.center ? el.center.lat : 0);
                 const elLon = el.lon || (el.center ? el.center.lon : 0);

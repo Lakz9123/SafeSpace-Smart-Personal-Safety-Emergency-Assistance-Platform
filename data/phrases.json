@@ -1,0 +1,57 @@
+{
+  "en": {
+    "name": "English",
+    "voiceLang": "en-US",
+    "phrases": [
+      "I need help.",
+      "Call the police.",
+      "Please call this number.",
+      "I am in danger.",
+      "Where is the nearest hospital?"
+    ]
+  },
+  "es": {
+    "name": "Español",
+    "voiceLang": "es-ES",
+    "phrases": [
+      "Necesito ayuda.",
+      "Llame a la policía.",
+      "Por favor, llame a este número.",
+      "Estoy en peligro.",
+      "¿Dónde está el hospital más cercano?"
+    ]
+  },
+  "hi": {
+    "name": "हिन्दी (Hindi)",
+    "voiceLang": "hi-IN",
+    "phrases": [
+      "मुझे मदद की ज़रूरत है।",
+      "पुलिस को बुलाओ।",
+      "कृपया इस नंबर पर कॉल करें।",
+      "मैं खतरे में हूँ।",
+      "सबसे नज़दीकी अस्पताल कहाँ है?"
+    ]
+  },
+  "fr": {
+    "name": "Français",
+    "voiceLang": "fr-FR",
+    "phrases": [
+      "J'ai besoin d'aide.",
+      "Appelez la police.",
+      "Veuillez appeler ce numéro.",
+      "Je suis en danger.",
+      "Où est l'hôpital le plus proche?"
+    ]
+  },
+  "ta": {
+    "name": "தமிழ் (Tamil)",
+    "voiceLang": "ta-IN",
+    "phrases": [
+      "எனக்கு உதவி தேவை.",
+      "போலீஸை கூப்பிடுங்கள்.",
+      "தயவுசெய்து இந்த எண்ணுக்கு அழைக்கவும்.",
+      "நான் ஆபத்தில் இருக்கிறேன்.",
+      "அருகிலுள்ள மருத்துவமனை எங்கே?"
+    ]
+  }
+}
